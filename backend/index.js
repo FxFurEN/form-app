@@ -7,7 +7,7 @@ const fs = require('fs');
 
 const api = require('./api');
 const config = require('./config');
-const User = require('../db/user');
+const User = require('./db/user');
 const { AppExtensionsSDK, Command} = require('@pipedrive/app-extensions-sdk'); 
 User.createTable();
 
