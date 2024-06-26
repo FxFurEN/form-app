@@ -175,4 +175,4 @@ app.get('/show-modal', async (req, res) => {
 
 
 
-app.listen(port, () => console.log(`🟢 App has started. \n🔗 Live URL: https://${process.env.PROJECT_DOMAIN}.glitch.me`));
+app.listen(port, () => console.log(`🟢 App has started. \n`));
