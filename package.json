@@ -10,6 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "@pipedrive/app-extensions-sdk": "^0.10.2",
+    "express": "^4.19.2",
+    "knex": "^3.1.0",
+    "passport": "^0.7.0",
+    "passport-oauth": "^1.0.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "sqlite3": "^5.1.7"
   }
 }
