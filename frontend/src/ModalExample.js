@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { AppExtensionsSDK, Command } from '@pipedrive/app-extensions-sdk';
+import AppExtensionsSDK, { Command } from '@pipedrive/app-extensions-sdk';
 
 function ModalExample() {
   useEffect(() => {
