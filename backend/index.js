@@ -7,7 +7,7 @@ const fs = require('fs');
 
 const api = require('./api');
 const config = require('./config');
-const User = require('./db/user');
+const User = require('../db/user');
 const { AppExtensionsSDK, Command} = require('@pipedrive/app-extensions-sdk'); 
 User.createTable();
 
@@ -146,31 +146,13 @@ app.get('/handle_action', (req, res) => {
     }
 });
 
-app.get('/show-modal', async (req, res) => {
-    try {
-        const sdk = await new AppExtensionsSDK({ identifier: '123abc' }).initialize({ size: { height: 500 } });
+const frontendPath = path.join(__dirname, '..', 'frontend');
 
-        const { confirmed } = await sdk.execute(Command.SHOW_CONFIRMATION, {
-            title: 'Confirm Action',
-            description: 'Are you sure you want to complete this action?',
-        });
+app.use(express.static(frontendPath));
 
-        if (confirmed) {
-            console.log('User confirmed action');
-            res.send('Action confirmed!');
-        } else {
-            console.log('User cancelled action');
-            res.send('Action cancelled!');
-        }
-
-    } catch (error) {
-        console.error('Error showing modal:', error);
-        res.status(500).send('Error showing modal');
-    }
+app.get('/show-modal', (req, res) => {
+    res.sendFile(path.join(frontendPath, 'index.html'));
 });
-
-
-
 
 
 
